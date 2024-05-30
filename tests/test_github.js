@@ -3,8 +3,7 @@ require("chromedriver");
 const assert = require('assert');
 
 async function test_github() {
-    let driver = await new Builder().forBrowser('chrome').build();
-
+    let driver = await new Builder().forBrowser('chrome').setChromeOptions(new chrome.Options().windowSize({width: 375, height: 812})).build();
     try {
         await driver.get('https://github.com');
 
